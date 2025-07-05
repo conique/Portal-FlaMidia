@@ -1,0 +1,47 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Seus estilos CSS personalizados para o frontend (abaixo do import do Bootstrap) */
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 56px; /* Para a navbar fixa do Bootstrap */
+    background-color: #f0f2f5; /* Um cinza claro para o fundo */
+    color: #333; /* Cor do texto padrão */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #cc0000; /* Vermelho do Flamengo para títulos */
+}
+
+/* Exemplo de estilo para um card de notícia */
+.noticia-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.noticia-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.noticia-card .card-body {
+    padding: 15px;
+}
+
+.noticia-card .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.noticia-card .card-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.noticia-card .btn {
+    margin-top: 10px;
+}

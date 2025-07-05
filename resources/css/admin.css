@@ -1,0 +1,38 @@
+/* resources/css/admin.css */
+
+@import 'bootstrap/dist/css/bootstrap.min.css'; /* <<< ESSA LINHA É CRUCIAL */
+
+body {
+    background-color: #343a40; /* Fundo escuro para o admin */
+    color: #f8f9fa; /* Texto claro */
+}
+
+.navbar-brand, .nav-link {
+    color: #f8f9fa !important; /* Texto branco no navbar */
+}
+
+.card {
+    background-color: #495057; /* Fundo mais escuro para cards do admin */
+    color: #f8f9fa;
+    border: none;
+}
+
+.card-header {
+    background-color: #212529;
+    border-bottom: 1px solid #6c757d;
+}
+
+.table {
+    background-color: #5a6268;
+    color: #f8f9fa;
+}
+
+.table th {
+    background-color: #b7b7b7;
+    border-bottom: 1px solid #868e96;
+}
+
+.table td {
+    border-top: 1px solid #6c757d;
+}
+/* Adicione mais estilos conforme necessário */
