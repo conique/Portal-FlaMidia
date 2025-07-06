@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Noticia; // Importe o Model Noticia
+use App\Models\Noticia;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Support\Str; // Para usar Str::limit na view, se necessário
+use Illuminate\Support\Str;
 
 class NoticiaController extends Controller
 {

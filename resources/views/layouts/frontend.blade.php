@@ -1,6 +1,7 @@
 {{-- resources/views/layouts/frontend.blade.php --}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +16,36 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+
+    <style>
+        /* Estilos para o Sticky Footer */
+        html,
+        body {
+            height: 100%;
+            /* Garante que html e body ocupem 100% da altura da viewport */
+        }
+
+        body {
+            display: flex;
+            /* Transforma o body em um container flex */
+            flex-direction: column;
+            /* Organiza os itens (navbar, main, footer) em coluna */
+        }
+
+        main {
+            flex-grow: 1;
+            /* Faz com que o conteúdo principal ocupe todo o espaço disponível */
+            margin-top: 65px;
+            /* Mantém a margem superior para a navbar fixa */
+        }
+
+        footer {
+            flex-shrink: 0;
+            /* Impede que o footer encolha */
+        }
+    </style>
 </head>
+
 <body>
     {{-- Navbar do Frontend --}}
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
@@ -38,8 +68,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('campeonatos') }}">Campeonatos</a>
                     </li>
+                    {{-- O link para Extras foi removido --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('contato', ['slug' => 'contato']) }}">Contato</a>
+                        <a class="nav-link" href="{{ route('contato') }}">Contato</a>
                     </li>
                 </ul>
             </div>
@@ -47,28 +78,30 @@
     </nav>
 
     {{-- Conteúdo principal da página --}}
-    <main style="margin-top: 65px;">
+    <main>
         @yield('content')
     </main>
 
     {{-- Footer do Frontend --}}
-    <footer class="bg-dark text-white py-4 mt-5"> {{-- Ajustado padding vertical --}}
+    <footer class="bg-dark text-white py-4 mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <h5 class="text-white">Sobre o Portal FlaMídia</h5>
                     <p class="text-white-50">
                         O Portal FlaMídia é uma página independente dedicada exclusivamente a cobrir o dia a dia do Clube de Regatas do Flamengo. Aqui, o torcedor encontra as últimas notícias, bastidores, análises, entrevistas e conteúdo especial sobre o Mais Querido do Brasil.
+                        Criado por apaixonados pelo clube, o portal surgiu com o objetivo de informar com agilidade, responsabilidade e isenção, sem abrir mão da paixão rubro-negra que nos move.
                     </p>
                 </div>
-                <div class="col-md-6 mb-3 text-md-end"> {{-- Alinhado à direita em telas médias --}}
+                <div class="col-md-6 mb-3 text-md-end">
                     <h5 class="text-white">Links Rápidos</h5>
                     <ul class="list-unstyled text-white-50">
                         <li><a href="{{ route('home') }}" class="text-white-50 text-decoration-none">Home</a></li>
                         <li><a href="{{ route('noticias.index') }}" class="text-white-50 text-decoration-none">Notícias</a></li>
                         <li><a href="{{ route('elenco') }}" class="text-white-50 text-decoration-none">Elenco</a></li>
                         <li><a href="{{ route('campeonatos') }}" class="text-white-50 text-decoration-none">Campeonatos</a></li>
-                        <li><a href="{{ route('contato', ['slug' => 'contato']) }}" class="text-white-50 text-decoration-none">Contato</a></li>
+                        {{-- O link para Extras no footer foi removido --}}
+                        <li><a href="{{ route('login') }}" class="text-white-50 text-decoration-none">Login Admin</a></li>
                     </ul>
                 </div>
             </div>
@@ -82,4 +115,5 @@
     <!-- Bootstrap JS (via CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eGbVrC6kK3eN" crossorigin="anonymous"></script>
 </body>
+
 </html>

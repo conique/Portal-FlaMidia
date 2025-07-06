@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\FrontendChampionshipController; // <<< ALTERADO PARA FrontendChampionshipController
 use App\Http\Controllers\Frontend\ElencoController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,10 +34,17 @@ Route::get('/noticias/{slug}', [NoticiaController::class, 'show'])->name('notici
 Route::get('/elenco', [ElencoController::class, 'index'])->name('elenco');
 
 // Rota dinâmica para campeonatos - USANDO FrontendChampionshipController
-Route::get('/campeonatos', [FrontendChampionshipController::class, 'index'])->name('campeonatos'); // <<< ALTERADO AQUI
+Route::get('/campeonatos', [FrontendChampionshipController::class, 'index'])->name('campeonatos');
 
-// Rota para a página "Contato/Sobre" dinâmica
-Route::get('/contato/{slug}', [AdminPageController::class, 'showPageBySlug'])->name('contato');
+// Rota para a página "Contato" (URL limpa)
+Route::get('/contato/{slug?}', [AdminPageController::class, 'showPageBySlug'])->name('contato');
+
+// Rota para a página "Extras" (URL limpa) - Se você ainda quer manter, caso contrário, remova
+Route::get('/extras/{slug?}', [AdminPageController::class, 'showPageBySlug'])->name('extras');
+
+// Rota genérica para outras páginas dinâmicas (se você tiver mais além de 'contato' e 'extras')
+// Route::get('/pagina/{slug}', [AdminPageController::class, 'showPageBySlug'])->name('pagina.show');
+
 
 // ========================================================================
 // ROTAS DE AUTENTICAÇÃO DO BREEZE
@@ -63,8 +71,10 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // Rotas de Recurso para Gerenciamento de Campeonatos no Admin (CRUD)
     Route::resource('championships', AdminChampionshipController::class);
 
-    // Rotas de Recurso para Gerenciamento de Páginas (Sobre/Contato) no Admin (CRUD)
-    Route::resource('pages', AdminPageController::class);
+    // ROTAS ESPECÍFICAS PARA EDIÇÃO DA PÁGINA DE CONTATO (NÃO MAIS UM RESOURCE COMPLETO)
+    Route::get('/pages/contact/edit', [AdminPageController::class, 'editContactPage'])->name('pages.contact.edit');
+    Route::put('/pages/contact/update', [AdminPageController::class, 'updateContactPage'])->name('pages.contact.update');
+    // A rota Route::resource('pages', AdminPageController::class); foi removida.
 });
 
 

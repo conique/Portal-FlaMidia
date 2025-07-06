@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('championships', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('ano')->nullable(); // Ano da edição do campeonato
-            $table->string('status')->nullable(); // Ex: Em Andamento, Finalizado, Próximos Jogos
-            $table->text('descricao')->nullable(); // Breve descrição do campeonato
-            $table->string('logo')->nullable(); // Caminho para o logo do campeonato
+            $table->string('ano')->nullable();
+            $table->string('status')->nullable();
+            $table->text('descricao')->nullable();
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }

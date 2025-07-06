@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,8 +15,10 @@
 
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 </head>
+
 <body class="bg-light">
     <div class="min-h-screen">
+        {{-- Admin Navbar (Menu Superior) --}}
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('admin.dashboard') }}">Admin FlaMídia</a>
@@ -36,19 +39,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.championships.index') }}">Campeonatos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.pages.index') }}">Páginas</a>
+                        <li class="nav-item"> {{-- Link para Editar Contato --}}
+                            <a class="nav-link" href="{{ route('admin.pages.contact.edit') }}">Editar Contato</a>
                         </li>
                     </ul>
                     <div class="d-flex">
                         @auth
-                            <span class="navbar-text me-3">
-                                Olá, {{ Auth::user()->name }}
-                            </span>
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit" class="btn btn-outline-light">Sair</button>
-                            </form>
+                        <span class="navbar-text me-3">
+                            Olá, {{ Auth::user()->name }}
+                        </span>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-light">Sair</button>
+                        </form>
                         @endauth
                     </div>
                 </div>
@@ -57,21 +60,23 @@
 
         <main class="py-4">
             <div class="container">
+                {{-- Mensagens Flash --}}
                 @if(session('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ session('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
                 @endif
                 @if(session('error'))
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        {{ session('error') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
                 @endif
                 @yield('content')
             </div>
         </main>
     </div>
 </body>
+
 </html>

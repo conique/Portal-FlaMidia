@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Noticia; // Importe o Model Noticia
+use App\Models\Noticia;
 use Illuminate\Http\Request;
-use Illuminate\View\View; // Para tipagem de retorno
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
@@ -16,12 +16,11 @@ class HomeController extends Controller
      */
     public function index(): View
     {
-        // Busca as 5 últimas notícias publicadas
         $ultimasNoticias = Noticia::with('category', 'user')
-            ->whereNotNull('published_at') // Apenas notícias publicadas
-            ->latest() // Ordena pelas mais recentes
-            ->take(5) // Pega apenas as 5 primeiras
-            ->get(); // Executa a consulta
+            ->whereNotNull('published_at')
+            ->latest()
+            ->take(6)
+            ->get();
 
         return view('frontend.home', compact('ultimasNoticias'));
     }
