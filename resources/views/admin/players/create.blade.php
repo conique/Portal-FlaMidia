@@ -64,8 +64,6 @@
             </div>
         </div>
 
-        {{-- Campo de Descrição/Biografia REMOVIDO --}}
-
         <div class="mb-3">
             <label for="foto" class="form-label">Foto do Jogador</label>
             <input type="file" class="form-control @error('foto') is-invalid @enderror" id="foto" name="foto" accept="image/*">

@@ -18,30 +18,22 @@
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
     <style>
-        /* Estilos para o Sticky Footer */
         html,
         body {
             height: 100%;
-            /* Garante que html e body ocupem 100% da altura da viewport */
         }
 
         body {
             display: flex;
-            /* Transforma o body em um container flex */
             flex-direction: column;
-            /* Organiza os itens (navbar, main, footer) em coluna */
         }
 
         main {
             flex-grow: 1;
-            /* Faz com que o conteúdo principal ocupe todo o espaço disponível */
-            margin-top: 65px;
-            /* Mantém a margem superior para a navbar fixa */
         }
 
         footer {
             flex-shrink: 0;
-            /* Impede que o footer encolha */
         }
     </style>
 </head>

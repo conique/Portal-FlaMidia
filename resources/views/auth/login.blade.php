@@ -1,6 +1,6 @@
 <x-guest-layout>
     <form method="POST" action="{{ route('login') }}">
-        @csrf {{-- <<< ESTA LINHA É FUNDAMENTAL! --}}
+        @csrf
 
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
