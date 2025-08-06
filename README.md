@@ -7,10 +7,7 @@ git clone https://github.com/conique/Portal-FlaMidia.git
 cd portal-flamidia
 
 2. Configuração do Projeto
-# Copia o arquivo de ambiente
 copy .env.example .env
-
-# Gera a chave da aplicação
 php artisan key:generate
 
 3. Banco de Dados
@@ -25,14 +22,9 @@ DB_PASSWORD=
 Rode as migrações para criar as tabelas:
 php artisan migrate
 
-4. Assets e Link Simbólico
-# Cria o link para as imagens
+4. Assets e Link Simbólico 
 php artisan storage:link
-
-# Instala as dependências do frontend
 npm install
-
-# Compila os assets do frontend
 npm run dev
 
 5. Iniciar Servidores
