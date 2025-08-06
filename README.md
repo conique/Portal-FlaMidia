@@ -1,49 +1,93 @@
-🚀 Guia de Instalação Rápida
-Siga estes comandos, um por um, no seu terminal.
 
-1. Clonar e Navegar
+📘 README - Guia de Instalação Rápida do Portal FlaMídia
+
+Siga os passos abaixo no seu terminal para instalar e executar o projeto localmente.
+
+---
+
+🚀 1. Clonar o Projeto e Navegar
+```bash
 cd "C:\xampp\htdocs\sua-pasta-web"
 git clone https://github.com/conique/Portal-FlaMidia.git
 cd portal-flamidia
+```
 
-2. Configuração do Projeto
+---
+
+⚙️ 2. Configuração do Projeto
+```bash
 copy .env.example .env
 php artisan key:generate
+```
 
-3. Banco de Dados
-Crie um banco de dados chamado portal_flamidia no phpMyAdmin.
+---
 
-Abra o arquivo .env e configure as credenciais:
+🗄️ 3. Banco de Dados
 
+1. Acesse o **phpMyAdmin** e crie um banco de dados com o nome:
+
+```
+portal_flamidia
+```
+
+2. No arquivo `.env`, atualize os dados de conexão com o banco:
+
+```
 DB_DATABASE=portal_flamidia
 DB_USERNAME=root
 DB_PASSWORD=
+```
 
-Rode as migrações para criar as tabelas:
+3. Execute as migrações para criar as tabelas:
+
+```bash
 php artisan migrate
+```
 
-4. Assets e Link Simbólico 
+---
+
+🎨 4. Assets e Link Simbólico
+```bash
 php artisan storage:link
 npm install
 npm run dev
+```
 
-5. Iniciar Servidores
-Abra dois terminais na pasta do projeto e execute:
+---
+
+🖥️ 5. Iniciar os Servidores
+
+Abra **dois terminais** na pasta do projeto:
 
 Terminal 1:
+```bash
 php artisan serve
+```
 
 Terminal 2:
+```bash
 npm run dev
+```
 
-🌐 Acesso ao Sistema
-Após seguir os passos, seu site estará disponível em:
+---
 
-http://127.0.0.1:8000
+🌐 6. Acesso ao Sistema
 
-🔒 Acesso ao Admin
-Vá para http://127.0.0.1:8000/login
+Após seguir todos os passos, acesse o site pelo navegador:
 
-Clique em "Register" para criar seu usuário.
+🔗 http://127.0.0.1:8000
 
-Faça login para acessar o painel de gerenciamento.
+---
+
+🔒 7. Acesso ao Painel Admin
+
+1. Vá até: http://127.0.0.1:8000/login  
+2. Clique em **Register** para criar seu usuário.  
+3. Após o cadastro, faça login normalmente.  
+4. Você será redirecionado ao **painel de gerenciamento**.
+
+---
+
+✅ Projeto Pronto!
+
+Agora seu projeto **Portal FlaMídia** está rodando localmente com sucesso!
